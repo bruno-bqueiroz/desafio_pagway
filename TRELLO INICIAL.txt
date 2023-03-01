@@ -1,0 +1,38 @@
+Para implementar esse serviço com Node.js e Postgresql, podemos utilizar o framework Express para desenvolver as APIs e o banco de dados Postgresql para armazenar as informações das transações e payables.
+
+Vamos seguir os seguintes passos:
+
+Configurar o ambiente de desenvolvimento: instalar o Node.js, o Postgresql e o driver de conexão com o Postgresql (pg).
+Criar um banco de dados no Postgresql para armazenar as informações das transações e payables.
+Criar uma tabela no banco de dados para armazenar as informações das transações.
+Criar uma tabela no banco de dados para armazenar as informações dos payables.
+Desenvolver as APIs para criar transações, consultar transações e consultar o saldo do cliente.
+Implementar a lógica de criação dos payables no momento da criação das transações.
+Segue um exemplo de código para a criação das tabelas no banco de dados:
+
+sql
+Copy code
+-- tabela para armazenar as informações das transações
+CREATE TABLE transactions (
+  id SERIAL PRIMARY KEY,
+  amount DECIMAL(10,2) NOT NULL,
+  description TEXT NOT NULL,
+  card_last_digits VARCHAR(4) NOT NULL,
+  card_holder_name VARCHAR(255) NOT NULL,
+  card_expiration_date DATE NOT NULL,
+  card_cvv VARCHAR(3) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- tabela para armazenar as informações dos payables
+CREATE TABLE payables (
+  id SERIAL PRIMARY KEY,
+  transaction_id INTEGER NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  fee DECIMAL(5,2) NOT NULL,
+  status VARCHAR(10) NOT NULL,
+  payment_date DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  FOREIGN KEY (transaction_id) REFERENCES transactions(id)
+);
+A partir daí, podemos desenvolver as APIs para interagir com essas tabelas e implementar a lógica de criação dos payables no momento da criação das transações.
