@@ -14,13 +14,14 @@ export type ApplicationError = {
     cardCvv: string
   }
 
-  export type PayableBody = {
+  export type PayableBody = [{
+    id?: number
     amount: number,
     fee: string,
     status: string,
     paymentDate: string,
     transactionId: number
-  }
+  }]
 
   export const PayableStatus = {
     PENDENTE: 'pendente',

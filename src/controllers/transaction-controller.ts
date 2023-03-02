@@ -1,7 +1,7 @@
 import { AuthenticatedRequest } from "@/middlewares";
 import { TransactionBody } from "@/protocols"; 
 import {postTransaction} from "@/services/transaction-service";
-import { Request, Response } from "express";
+import { Response } from "express";
 import httpStatus from "http-status";
 
 export async function transactionPost(req: AuthenticatedRequest, res: Response) {

@@ -13,8 +13,16 @@ async function postByTransactionId(userId: number, amount: number, date: string)
   });
 }
 
+async function getByuserId(userId: number) {
+  return prisma.payables.findMany({
+    where: {userId: userId}
+  });
+}
+
+
   const payableRepository = {
-    postByTransactionId
+    postByTransactionId,
+    getByuserId
   };
   
   export default payableRepository;
