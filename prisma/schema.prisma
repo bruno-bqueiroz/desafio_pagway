@@ -16,6 +16,7 @@ model User {
   password        String       @db.VarChar(255)
   Session         Session[]
   Transactions         Transactions[]
+  Payables         Payables[]
 }
 
 model Session {
@@ -34,7 +35,6 @@ model Transactions {
   cardCvv             String    @db.VarChar(4)
   userId              Int
   User      User     @relation(fields: [userId], references: [id])
-  Payables         Payables[]
 }
 
 model Payables {
@@ -43,6 +43,6 @@ model Payables {
   fee      String    @db.VarChar(5)
   status            String    @db.VarChar(255)
   paymentDate  String    @db.VarChar(255)
-  transactionId       Int
-  Transactions      Transactions     @relation(fields: [transactionId], references: [id])
-}
+  userId              Int
+  User      User     @relation(fields: [userId], references: [id])
+  }
