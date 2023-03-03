@@ -57,7 +57,7 @@ npm run migration:run
 npm run test
 ```
 
-
+-----------------------------------------------------------------------------------
 
 versão simplificada
 
@@ -72,7 +72,8 @@ testes
 
 1. npm run test
 
-rotas
+
+`rotas da aplicação`
 
 1. criar um usuário
 
