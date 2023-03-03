@@ -1,5 +1,4 @@
 import app, { init } from "@/app";
-import { prisma } from "@/config";
 import faker from "@faker-js/faker";
 import httpStatus from "http-status";
 import * as jwt from "jsonwebtoken";
@@ -42,7 +41,7 @@ describe("POST /payable", () => {
   });
 
     describe("when token is valid", () => {
-  
+      
       it("should respond with status 200 and with payable data", async () => {
         const user = await createUser();
         const token = await generateValidToken(user);

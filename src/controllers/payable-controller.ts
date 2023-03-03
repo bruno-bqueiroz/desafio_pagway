@@ -11,7 +11,9 @@ export async function payableGet(req: AuthenticatedRequest, res: Response) {
 
   try {
     const payables = await getPayable(userId) as unknown as PayableBody;
-    
+    /* 
+    if(payables.length < 1) return res.sendStatus(httpStatus.NOT_FOUND) */
+
     payables.map((v)=>{
         if(v.status === PayableStatus.LIQUIDADO){
             saldoLiquidado+= (v.amount / 100);
