@@ -6,6 +6,6 @@ const payableRouter = Router();
 
 payableRouter
     .all("/*", authenticateToken)
-    .post("",  payableGet)
+    .get("",  payableGet)
 
 export { payableRouter };

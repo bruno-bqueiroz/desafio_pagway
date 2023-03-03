@@ -14,7 +14,6 @@ export async function postTransaction(userId: number, body: TransactionBody) {
 
     if(data === null) throw badRequestError();
     const amount = body.amount*0.95;
-    const payables = await payableRepository.postByTransactionId(userId, amount, date);
-    console.log(payables);
+    await payableRepository.postByTransactionId(userId, amount, date);
     return data;
 }
