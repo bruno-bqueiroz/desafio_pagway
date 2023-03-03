@@ -7,7 +7,7 @@ export type ApplicationError = {
   //Regra de Negócio
   export type TransactionBody = {
     id?: number,
-    amount?: number,
+    amount: number,
     cardLatsDigits: string,
     cardName: string,
     cardExpirationDate: string,

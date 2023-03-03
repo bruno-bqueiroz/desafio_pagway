@@ -6,3 +6,11 @@ export function notFoundError(): ApplicationError {
       message: "NotHaveDataForThisDay",
     };
   }
+
+  export function badRequestError(): ApplicationError {
+    return {
+      name: "badRequestError",
+      message: "NotHaveDataForThisDay",
+    };
+  }
+
